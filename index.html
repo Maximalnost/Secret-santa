@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Santa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="snowContainer"></div>
+
+<img id="logo" src="images/Secret-Santa-2025.png">
+<!-- ЭКРАН 1 -->
+<section id="loginScreen" class="screen">
+  <input id="password" type="password" placeholder="Пароль">
+  <button id="authBtn">Подключиться</button>
+</section>
+
+<!-- ЭКРАН 2: чистый экран после авторизации -->
+  <video id="introVideo" autoplay muted playsinline class="hidden">
+    <source src="videos/Chunk_colormap.mp4" type="video/mp4">
+  </video>
+
+<!-- ЭКРАН 3: видео на весь экран -->
+<section id="videoScreen" class="screen hidden">
+  <video id="video" playsinline></video>
+</section>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
