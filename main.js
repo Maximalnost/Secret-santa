@@ -2,8 +2,8 @@ let participants, results, currentUser;
 
 // Загружаем JSON (относительные пути)
 async function loadData() {
-  participants = await fetch('./data/participants.json').then(r => r.json());
-  results = await fetch('./data/results.json').then(r => r.json());
+participants = await fetch('./participants.json').then(r => r.json());
+results = await fetch('./results.json').then(r => r.json());
 }
 await loadData();
 
