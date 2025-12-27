@@ -2,12 +2,12 @@ const fs = require('fs');
 const crypto = require('crypto');
 
 const participantsList = [
-  {name: 'Максим', password: 'BananaLover', video: "/videos/maxim.mp4" },
-  {name: 'Вика', password: 'MoyLubimiyNovozibkov', video: "/videos/vika.mp4" },
-  {name: 'Катя', password: 'FurryArtist18+', video: "/videos/katya.mp4" },
-  {name: 'Марина', password: 'Lisi4ka18', video: "/videos/marina.mp4" },
-  {name: 'Серёжа', password: 'ImagineMiyaGiBTS', video: "/videos/serega.mp4" },
-  {name: 'Даня', password: 'TopEEEInvoker228', video: "/videos/danya.mp4"}
+  {name: 'Максим', password: 'BananaLover', video: "videos/maxim.mp4" },
+  {name: 'Вика', password: 'MoyLubimiyNovozibkov', video: "videos/vika.mp4" },
+  {name: 'Катя', password: 'FurryArtist18+', video: "videos/katya.mp4" },
+  {name: 'Марина', password: 'Lisi4ka18', video: "videos/marina.mp4" },
+  {name: 'Серёжа', password: 'ImagineMiyaGiBTS', video: "videos/serega.mp4" },
+  {name: 'Даня', password: 'TopEEEInvoker228', video: "videos/danya.mp4" }
 ];
 
 function hashPassword(pwd) {

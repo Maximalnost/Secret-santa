@@ -1,8 +1,8 @@
 {
   "user1": "user4",
-  "user2": "user3",
-  "user3": "user2",
-  "user4": "user1",
-  "user5": "user6",
+  "user2": "user1",
+  "user3": "user6",
+  "user4": "user3",
+  "user5": "user2",
   "user6": "user5"
 }
