@@ -1,9 +1,9 @@
 let participants, results, currentUser;
 
-// Подгружаем данные
+// Подгружаем данные (относительные пути для GitHub Pages)
 async function loadData() {
-  participants = await fetch('/data/participants.json').then(r => r.json());
-  results = await fetch('/data/results.json').then(r => r.json());
+  participants = await fetch('data/participants.json').then(r => r.json());
+  results = await fetch('data/results.json').then(r => r.json());
 }
 await loadData();
 
@@ -13,32 +13,17 @@ async function hashPassword(pwd) {
   return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
 }
 
-// Получаем прямую ссылку на mp4 через API Яндекс.Диска
-async function getDirectVideoLink(publicUrl) {
-  const apiUrl = `https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key=${publicUrl}`;
-  const data = await fetch(apiUrl).then(r => r.json());
-  return data.href; // это прямая ссылка на mp4
-}
-
 // Функция запуска основного видео
-async function startMainVideo() {
+function startMainVideo() {
   const targetId = results[currentUser];
-  const publicUrl = participants[targetId].video;
+  const videoSrc = participants[targetId].video;
 
   const videoScreen = document.getElementById('videoScreen');
   const video = document.getElementById('video');
 
-  // Получаем прямую ссылку через API
-  const directLink = await getDirectVideoLink(publicUrl);
-
+  video.src = videoSrc;
   videoScreen.classList.remove('hidden');
-  video.src = directLink;
-  video.load();
-
-  // Ждём полной загрузки видео
-  video.addEventListener('canplaythrough', () => {
-    video.play();
-  });
+  video.play();
 }
 
 // Авторизация по паролю
@@ -50,8 +35,6 @@ document.getElementById('authBtn').onclick = async () => {
   if (!id) return alert('Неверный пароль');
 
   currentUser = id;
-
-  // Скрываем экран логина
   document.getElementById('loginScreen').classList.add('hidden');
   document.getElementById('logo').classList.add('hidden');
 
@@ -79,6 +62,7 @@ const images = [
 
 function createFallingElements(count = 50) {
   const container = document.getElementById('snowContainer');
+
   const imgCount = Math.floor(count * 0.2);
   const snowCount = count - imgCount;
 
